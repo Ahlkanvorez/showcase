@@ -1,0 +1,6 @@
+{:date #inst "2020-08-29T02:58:04.098-00:00"
+ :content
+ [:div
+  [:h1 "Hello World"]
+  [:p "This is just a placeholder since I need to have more content to test layouts."]
+  [:p "This should only appear on its dedicated article page, not the main blog page."]]}
