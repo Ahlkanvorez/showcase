@@ -10,7 +10,8 @@
             [compojure.route :as route]
             [hiccup.core :as h]
             [hiccup.page :as page]
-            [clojure-showcase.views.article :as article]))
+            [clojure-showcase.views.article :as article])
+  (:gen-class))
 
 (def server
   (compojure/routes

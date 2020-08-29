@@ -1,4 +1,4 @@
-(defproject clojure-showcase "1.0.1"
+(defproject clojure-showcase "1.0.2"
   :description "A site to showcase projects and share articles"
   :url "https://ahlk.io/showcase"
   :license {:name "EPL-2.0 OR GPL-2.0-or-later WITH Classpath-exception-2.0"
@@ -11,7 +11,5 @@
                  [hiccup "1.0.5"]]
   :plugins [[lein-ring "0.12.5"]]
   :ring {:handler clojure-showcase.core/server}
-  :repl-options {:init-ns clojure-showcase.core}
-  :main ^:skip-aot clojure-showcase.core
   :target-path "target/%s"
-  :profiles {:uberjar {:aot :all}})
+  :profiles {:uberjar {:aot :all :main clojure-showcase.core}})
