@@ -20,7 +20,7 @@
    (compojure/GET "/showcase/about" [] (about/view))
    (compojure/GET "/showcase/blog" [] (blog/view))
    (compojure/GET "/showcase/blog/:title" [title] (article/view title))
-   (route/resources "/showcase")
+   (route/resources "/")
    (route/not-found (not-found/view))))
 
 (defn -main [& args]

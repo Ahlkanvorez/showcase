@@ -7,7 +7,7 @@
 
 (defn root-path []
   (str (System/getProperty "user.dir")
-       "/resources/public/edn/"))
+       "/resources/public/showcase/edn/"))
 
 (defn path [name]
   (str (root-path) "/" name ".edn"))
