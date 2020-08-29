@@ -86,7 +86,7 @@
 
     - name: Start docker container
       docker_container:
-        name: web_monitor
+        name: "{{ site_container.name }}"
         image: "{{ site_container.image }}:{{ site_container.tag }}"
         state: started
         networks:
