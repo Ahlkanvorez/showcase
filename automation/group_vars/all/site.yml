@@ -1,0 +1,12 @@
+---
+
+site_project_name: showcase
+  
+site_source_repository: git@bitbucket.org:ahlk/clojure-showcase.git
+
+site_container:
+  name: automation-dashboard
+  image: "{{ vault_docker_username }}/showcase"
+  tag: 1.0.0
+
+...

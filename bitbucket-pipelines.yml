@@ -1,0 +1,31 @@
+# This is a sample build configuration for Clojure.
+# Check our guides at https://confluence.atlassian.com/x/5Q4SMw for more examples.
+# Only use spaces to indent your .yml configuration.
+# -----
+# You can specify a custom docker image from Docker Hub as your build environment.
+image: clojure:lein-2.9.1
+
+pipelines:
+  default:
+    - step:
+        script: # Modify the commands below to build your repository.
+          - lein test
+  branches:
+    master:
+      - step:
+          name: Deploy to Production
+          deployment: Production
+          script:
+            - apt update -y
+            - apt install -y gnupg
+            - echo 'deb http://ppa.launchpad.net/ansible/ansible/ubuntu trusty main' >> /etc/apt/sources.list
+            - apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 93C4A3FD7BB9C367
+            - apt update -y
+            - apt install -y ansible
+            - chown root:root automation
+            - chmod 0700 automation
+            - cd automation
+            - echo $vault_password >> vault_password
+            - chmod 0400 ./vault_password
+            - ansible-playbook provision_staging.yml -i inventory.yml --vault-password-file vault_password --private-key ~/.ssh/id_rsa
+            - rm -f id_rsa vault_password
