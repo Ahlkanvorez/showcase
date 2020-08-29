@@ -18,13 +18,13 @@
         [:span {:class "icon-bar"}]
         [:span {:class "icon-bar"}]
         [:span {:class "icon-bar"}]]
-       [:a {:id "blog-title" :class "navbar-brand" :href "/"}
+       [:a {:id "blog-title" :class "navbar-brand" :href "/showcase"}
         "Robert Mitchell"]]
       [:div {:id "navbar-collapse" :class "collapse navbar-collapse"}
        [:ul {:class "nav navbar-nav"}
-        (nav-link "/about" "About")
-        (nav-link "/blog" "Blog")
-        (nav-link "/projects" "Projects")]]]]]])
+        (nav-link "/showcase/about" "About")
+        (nav-link "/showcase/blog" "Blog")
+        (nav-link "/showcase/projects" "Projects")]]]]]])
 
 (defn base [& {:keys [title content]}]
   (h/html5
@@ -33,7 +33,7 @@
     [:meta {:name "viewport"
             :content "width=device-width, initial-scale=1, maximum-scale=1"}]
     [:title title]
-    (h/include-css "/css/styles.css")
+    (h/include-css "/showcase/css/styles.css")
     (h/include-css
      "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
      "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css")

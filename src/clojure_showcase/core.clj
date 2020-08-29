@@ -15,12 +15,12 @@
 
 (def server
   (compojure/routes
-   (compojure/GET "/" [] (index/view))
-   (compojure/GET "/projects" [] (projects/view))
-   (compojure/GET "/about" [] (about/view))
-   (compojure/GET "/blog" [] (blog/view))
-   (compojure/GET "/blog/:title" [title] (article/view title))
-   (route/resources "/")
+   (compojure/GET "/showcase" [] (index/view))
+   (compojure/GET "/showcase/projects" [] (projects/view))
+   (compojure/GET "/showcase/about" [] (about/view))
+   (compojure/GET "/showcase/blog" [] (blog/view))
+   (compojure/GET "/showcase/blog/:title" [title] (article/view title))
+   (route/resources "/showcase/")
    (route/not-found (not-found/view))))
 
 (defn -main [& args]

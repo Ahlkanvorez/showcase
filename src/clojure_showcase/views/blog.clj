@@ -26,8 +26,8 @@
                [:div {:onclick
                       (str "location.href='"
                            (if (= (:name article) "about")
-                             "/about"
-                             (str "/blog/" (:name article)))
+                             "/showcase/about"
+                             (str "/showcase/blog/" (:name article)))
                            "'")}
                 [:div {:class "article-summary"}
                  (:content article)]])]))
