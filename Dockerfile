@@ -7,7 +7,7 @@ RUN lein uberjar
 FROM alpine:3
 
 WORKDIR /showcase
-COPY --from=builder /showcase/target/uberjar/clojure-showcase-1.0.3-standalone.jar ./showcase.jar
+COPY --from=builder /showcase/target/uberjar/clojure-showcase-1.0.4-standalone.jar ./showcase.jar
 
 RUN apk add openjdk11-jre --no-cache
 

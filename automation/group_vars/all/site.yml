@@ -7,6 +7,6 @@ site_source_repository: git@bitbucket.org:ahlk/clojure-showcase.git
 site_container:
   name: showcase
   image: "{{ vault_docker_username }}/showcase"
-  tag: 1.0.3
+  tag: 1.0.4
 
 ...
