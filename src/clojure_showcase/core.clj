@@ -2,6 +2,7 @@
   (:require [clojure-showcase.views.index :as index]
             [clojure-showcase.views.not-found :as not-found]
             [clojure-showcase.views.projects :as projects]
+            [clojure-showcase.views.article :as article]
             [clojure-showcase.views.about :as about]
             [clojure-showcase.views.blog :as blog]
             [ring.adapter.jetty :as jetty]
@@ -10,7 +11,8 @@
             [compojure.route :as route]
             [hiccup.core :as h]
             [hiccup.page :as page]
-            [clojure-showcase.views.article :as article])
+            [clj-statsd :as stats]
+            [clojure.edn :as edn])
   (:gen-class))
 
 (def server
@@ -24,4 +26,7 @@
    (route/not-found (not-found/view))))
 
 (defn -main [& args]
-  (jetty/run-jetty server {:port 3000 :join? false}))
+  (let [cfg (-> "/showcase/config/config.edn" slurp edn/read-string)]
+    (stats/setup (-> cfg :statsd :host) (-> cfg :statsd :port))
+    (stats/increment :showcase.server.started)
+    (jetty/run-jetty server {:port (or (:port cfg) 3000) :join? false})))
