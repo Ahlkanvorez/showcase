@@ -91,6 +91,8 @@
         state: started
         networks:
           - name: product-monitor-telemetry
+        volumes:
+          - /etc/showcase/edn/:/showcase/resources/public/showcase/edn/:ro
         restart: yes
       become: yes
       become_user: root
