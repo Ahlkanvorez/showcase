@@ -16,6 +16,7 @@
 
 (def server
   (compojure/routes
+   (compojure/GET "/" [] (ring-util/redirect "/showcase"))
    (compojure/GET "/showcase" [] (index/view))
    (compojure/GET "/showcase/projects" [] (projects/view))
    (compojure/GET "/showcase/about" [] (about/view))
