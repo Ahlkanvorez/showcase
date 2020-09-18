@@ -3,7 +3,8 @@
             [clojure-showcase.views.layout :as layout]
             [clojure.java.io :as io]
             [hiccup.core :as h]
-            [clojure.edn :as edn]))
+            [clojure.edn :as edn]
+            [clj-statsd :as stats]))
 
 (defn articles []
   (->> (article/root-path) io/file file-seq
@@ -19,6 +20,7 @@
        reverse))
 
 (defn view []
+  (stats/increment :showcase.pages-viewed.blog)
   (layout/base
    :title "Robert Mitchell | Blog"
    :content [:div {:id "article-list"}

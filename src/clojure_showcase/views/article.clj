@@ -3,7 +3,8 @@
            (java.time.format DateTimeFormatter))
   (:require [clojure-showcase.views.layout :as layout]
             [clojure.edn :as edn]
-            [hiccup.core :as h]))
+            [hiccup.core :as h]
+            [clj-statsd :as stats]))
 
 (defn root-path []
   (str (System/getProperty "user.dir")
@@ -19,6 +20,7 @@
                    toLocalDateTime))))
 
 (defn view [name]
+  (stats/increment (keyword (str "showcase.pages-viewed.article." name)))
   (layout/base
    :title (str "Robert Mitchell | " (clojure.string/capitalize name))
    :content

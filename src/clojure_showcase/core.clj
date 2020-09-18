@@ -11,7 +11,8 @@
             [compojure.route :as route]
             [hiccup.core :as h]
             [hiccup.page :as page]
-            [clojure.edn :as edn])
+            [clojure.edn :as edn]
+            [clj-statsd :as stats])
   (:gen-class))
 
 (def server
@@ -26,4 +27,6 @@
    (route/not-found (not-found/view))))
 
 (defn -main [& args]
+  (stats/setup "graphite" 8125)
+  (stats/increment :showcase.server.started)
   (jetty/run-jetty server {:port 3000 :join? false}))
