@@ -1,10 +1,8 @@
 (ns clojure-showcase.views.projects
   (:require [clojure-showcase.views.layout :as layout]
-            [hiccup.core :as h]
-            [clj-statsd :as stats]))
+            [hiccup.core :as h]))
 
 (defn view []
-  (stats/increment :showcase.pages-viewed.projects)
   (layout/base
    :title "Projects"
    :content [:div

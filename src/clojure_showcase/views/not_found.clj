@@ -1,10 +1,8 @@
 (ns clojure-showcase.views.not-found
   (:require [clojure-showcase.views.layout :as layout]
-            [hiccup.core :as h]
-            [clj-statsd :as stats]))
+            [hiccup.core :as h]))
 
 (defn view []
-  (stats/increment :showcase.not-found)
   (layout/base
    :title "Page not found"
    :content [:div

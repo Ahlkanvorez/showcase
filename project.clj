@@ -13,7 +13,8 @@
                  [hiccup "1.0.5"]
 
                  ;; telemetry
-                 [clj-statsd "0.4.0"]]
+                 ;; [clj-statsd "0.4.0"]
+                 ]
   :plugins [[lein-ring "0.12.5"]]
   :ring {:handler clojure-showcase.core/server}
   :target-path "target/%s"

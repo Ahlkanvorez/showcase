@@ -11,7 +11,6 @@
             [compojure.route :as route]
             [hiccup.core :as h]
             [hiccup.page :as page]
-            [clj-statsd :as stats]
             [clojure.edn :as edn])
   (:gen-class))
 
@@ -26,7 +25,4 @@
    (route/not-found (not-found/view))))
 
 (defn -main [& args]
-  (let [cfg (-> "/showcase/config/config.edn" slurp edn/read-string)]
-    (stats/setup (-> cfg :statsd :host) (-> cfg :statsd :port))
-    (stats/increment :showcase.server.started)
-    (jetty/run-jetty server {:port (or (:port cfg) 3000) :join? false})))
+  (jetty/run-jetty server {:port 3000 :join? false}))
