@@ -8,7 +8,7 @@ FROM alpine:3
 
 WORKDIR /showcase
 COPY --from=builder /showcase/resources ./resources
-COPY --from=builder /showcase/target/uberjar/clojure-showcase-1.0.7-standalone.jar ./showcase.jar
+COPY --from=builder /showcase/target/uberjar/clojure-showcase-1.0.8-standalone.jar ./showcase.jar
 
 RUN apk add openjdk11-jre --no-cache
 
