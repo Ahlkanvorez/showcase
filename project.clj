@@ -1,4 +1,4 @@
-(defproject clojure-showcase "1.0.8"
+(defproject clojure-showcase "1.0.9"
   :description "A site to showcase projects and share articles"
   :url "https://ahlk.io/showcase"
   :license {:name "EPL-2.0 OR GPL-2.0-or-later WITH Classpath-exception-2.0"
@@ -13,7 +13,7 @@
                  [hiccup "1.0.5"]
 
                  ;; telemetry
-                 ;; [clj-statsd "0.4.0"]
+                 [clj-statsd "0.4.0"]
                  ]
   :plugins [[lein-ring "0.12.5"]]
   :ring {:handler clojure-showcase.core/server}
