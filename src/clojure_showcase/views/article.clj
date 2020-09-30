@@ -28,4 +28,6 @@
      [:article {:style "text-align: justify"}
       [:header {:style "float: right"}
        [:time (date (:date article))]]
-      (:content article)])))
+      [:div {:class "jumbotron jumbotron-fluid"}
+       [:div {:class "container"}
+        (:content article)]]])))

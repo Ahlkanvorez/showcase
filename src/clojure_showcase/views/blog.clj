@@ -23,13 +23,15 @@
   (stats/increment :showcase.pages-viewed.blog)
   (layout/base
    :title "Robert Mitchell | Blog"
-   :content [:div {:id "article-list"}
-             (for [article (articles)]
-               [:div {:onclick
-                      (str "location.href='"
-                           (if (= (:name article) "about")
-                             "/showcase/about"
-                             (str "/showcase/blog/" (:name article)))
-                           "'")}
-                [:div {:class "article-summary"}
-                 (:content article)]])]))
+   :content
+   [:div {:class "jumbotron jumbotron-fluid"}
+    [:div {:class "container"}
+     (for [article (articles)]
+       [:div {:onclick
+              (str "location.href='"
+                   (if (= (:name article) "about")
+                     "/showcase/about"
+                     (str "/showcase/blog/" (:name article)))
+                   "'")}
+        [:div {:class "row"}
+         (:content article)]])]]))
