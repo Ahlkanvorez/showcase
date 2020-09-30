@@ -7,7 +7,7 @@
             [clojure-showcase.views.blog :as blog]
             [ring.adapter.jetty :as jetty]
             [ring.util.response :as ring-util]
-            [compojure.core :as compojure]
+            [compojure.core :refer :all]
             [compojure.route :as route]
             [hiccup.core :as h]
             [hiccup.page :as page]
@@ -15,18 +15,28 @@
             [clj-statsd :as stats])
   (:gen-class))
 
-(def server
-  (compojure/routes
-   (compojure/GET "/" [] (ring-util/redirect "/showcase"))
-   (compojure/GET "/showcase" [] (index/view))
-   (compojure/GET "/showcase/projects" [] (projects/view))
-   (compojure/GET "/showcase/about" [] (about/view))
-   (compojure/GET "/showcase/blog" [] (blog/view))
-   (compojure/GET "/showcase/blog/:title" [title] (article/view title))
+(def server-api
+  (routes
+   (GET "/" [] (ring-util/redirect "/showcase"))
+   (context "/showcase" []
+            (GET "/" [] (index/view))
+            (GET "/projects" [] (projects/view))
+            (GET "/about" [] (about/view))
+            (GET "/blog" [] (blog/view))
+            (GET "/blog/:title" [title] (article/view title)))
    (route/resources "/")
    (route/not-found (not-found/view))))
+
+(def server (atom nil))
+
+(defn start [port]
+  (reset! server (jetty/run-jetty server-api {:port port :join? false})))
+
+(defn stop []
+  (.stop @server)
+  (reset! server nil))
 
 (defn -main [& args]
   (stats/setup "graphite" 8125)
   (stats/increment :showcase.server.started)
-  (jetty/run-jetty server {:port 3000 :join? false}))
+  (start 3000))
