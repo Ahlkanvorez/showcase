@@ -1,15 +1,18 @@
-FROM clojure:openjdk-11-lein as builder
+FROM clojure:openjdk-16-lein-slim-buster as builder
 
 WORKDIR /showcase
 COPY . .
 RUN lein uberjar
 
-FROM alpine:3
+FROM openjdk:16-slim-buster
 
+EXPOSE 3000
 WORKDIR /showcase
+
+CMD java -XX:+UseContainerSupport \
+         -XX:+UnlockExperimentalVMOptions \
+         -XX:+UseZGC \
+         -jar ./showcase.jar
+
 COPY --from=builder /showcase/resources ./resources
-COPY --from=builder /showcase/target/uberjar/clojure-showcase-1.0.9-standalone.jar ./showcase.jar
-
-RUN apk add openjdk11-jre --no-cache
-
-CMD java -jar ./showcase.jar
+COPY --from=builder /showcase/target/uberjar/clojure-showcase-1.0.10-standalone.jar ./showcase.jar
