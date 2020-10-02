@@ -4,6 +4,7 @@
   :license {:name "EPL-2.0 OR GPL-2.0-or-later WITH Classpath-exception-2.0"
             :url "https://www.eclipse.org/legal/epl-2.0/"}
   :dependencies [[org.clojure/clojure "1.10.0"]
+                 [com.stuartsierra/component "1.0.0"]
 
                  ;; webserver
                  [javax.servlet/servlet-api "2.5"]
@@ -11,6 +12,10 @@
                  [ring/ring-jetty-adapter "1.6.3"]
                  [compojure "1.6.2"]
                  [hiccup "1.0.5"]
+
+                 ;; logging
+                 [org.slf4j/slf4j-simple "1.7.30"]
+                 [org.clojure/tools.logging "1.1.0"]
 
                  ;; telemetry
                  [clj-statsd "0.4.0"]

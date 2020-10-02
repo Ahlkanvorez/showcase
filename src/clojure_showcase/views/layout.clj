@@ -29,22 +29,37 @@
       (for [page ["Projects" "Blog" "About"]]
         (nav-link page))]]]])
 
-(defn base [& {:keys [title content]}]
-  (h/html5
-   [:head
-    [:meta {:charset "utf-8"}]
-    [:meta {:name "viewport"
-            :content "width=device-width, initial-scale=1, shrink-to-fit=no"}]
-    [:title title]
-    (h/include-css "/showcase/css/styles.css")
-    (h/include-css
-     "https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css")
-    (h/include-js
-     "https://code.jquery.com/jquery-3.5.1.slim.min.js"
-     "https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
-     "https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js")]
-   [:body
+(defn footer []
+  [:footer {:class "footer bg-light"}
+   [:div {:class "jumbotron bg-transparent"}
     [:div {:class "container"}
-     (header)
-     [:div {:class "row" :style "margin-top: 60px"}
-      [:div {:class "col-lg-12"} content]]]]))
+     [:h5 {:class "display-5"}
+      "Contact Me"]
+     [:a {:class "btn btn-secondary btn-large"}
+      "Github"]
+     [:a {:class "btn btn-secondary btn-large"}
+      "Bitbucket"]
+     [:a {:class "btn btn-secondary btn-large"}
+      "LinkedIn"]]]])
+
+(defn head [title]
+  [:head
+   [:meta {:charset "utf-8"}]
+   [:meta {:name "viewport"
+           :content "width=device-width, initial-scale=1, shrink-to-fit=no"}]
+   [:title title]
+   (h/include-css "/showcase/css/styles.css")
+   (h/include-css
+    "https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css")
+   (h/include-js
+    "https://code.jquery.com/jquery-3.5.1.slim.min.js"
+    "https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+    "https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js")])
+
+(defn base [& {:keys [title content]}]
+  (h/html5 (head title)
+           [:body
+            [:div {:class "wrapper"}
+             (header)
+             content
+             (footer)]]))

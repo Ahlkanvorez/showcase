@@ -1,0 +1,9 @@
+{:date #inst "2020-08-29T02:57:52.703-00:00"
+ :content
+ [:div
+  [:h1 {:class "display-4"}
+   "Robert Mitchell"]
+  [:p {:class "lead"}
+   "As a Senior Software Engineer at ION Geophysical, I apply Agile & DevOps principles to coordinate with other teams, modernize our systems and applications, and automate their testing and deployment. I use Ansible, Docker, and Python to enable automated, repeatable deployments both on-premises and in public clouds, such as AWS."]
+  [:p "Additionally, I design, implement, and maintain applications and services using Test-Driven Development to facilitate the work of Geophysicists, including highly concurrent Erlang applications that interact with RabbitMQ, and Graph & NoSQL databases; full-stack webapps using NodeJS and ReactJS for custom graph visualizations; and Qt-based C++ applications."]
+  [:p "I place great emphasis on continually learning & sharing what I learn. At ION, I spent several weeks teaching other developers Erlang so they could contribute to our codebases in that language, and I successfully started regular meetings in multiple teams dedicated to sharing new interesting things we've learned. Outside work, I enjoy studying new technologies, Mathematics, and programming in functional languages like Clojure."]]}

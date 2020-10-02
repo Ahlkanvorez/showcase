@@ -1,3 +1,58 @@
+@media (width <= 850px) {
+    .project-container {
+        width: 100%;
+    }
+
+    .project-container > .card {
+        padding-top: 60px;
+        padding-bottom: 60px;
+    }
+}
+
+@media (width > 850px) {
+    .project-container {
+        width: 50%;
+    }
+
+    .project-container > .card {
+        padding-top: 120px;
+        padding-bottom: 120px;
+    }
+}
+
+.project-list-container {
+    border-bottom: 4px solid #8A0707;
+}
+
+.project-container {
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.wrapper {
+    display: flex;
+    flex-flow: column;
+    height: 100%;
+}
+
+.wrapper > * {
+    pading: 10px;
+    flex: 1 100%;
+}
+
+html, body {
+    height: 100%;
+    margin: 0;
+}
+
+.header {
+    flex: 0 1 auto;
+}
+
+footer {
+    border-bottom: 4px solid #8A0707;
+}
+
 body, h1, h2, h3, h4, h2 a, h3 a  {
     font-family: 'Iowan Old Style', 'Lustria', "Times New Roman", serif;
 }
@@ -9,11 +64,6 @@ a {
 a:hover {
     text-decoration: none;
     color: #8a0707;
-}
-
-.header {
-    background-color: #FEFEFE;
-    border-bottom: 4px solid #8A0707;
 }
 
 #navbar {

@@ -1,34 +1,38 @@
 (ns clojure-showcase.views.projects
   (:require [clojure-showcase.views.layout :as layout]
+            [clojure-showcase.utils :as utils]
             [hiccup.core :as h]
             [clj-statsd :as stats]))
+
+(defn projects []
+  (utils/read-edn-file "projects"))
+
+(defn content []
+  [:div {:class "d-flex flex-wrap bg-transparent w-auto project-list-container"
+         :style (str
+                 "margin-top: 30px;"
+                 "margin-left: 0px;"
+                 "margin-right: 0px;")}
+   (for [[r row] (map-indexed vector (partition-all 2 (projects)))]
+     (for [[c project] (map-indexed vector row)]
+       [:div {:class "project-container"
+              :style
+              (str
+               "background-image: url(\"" (project :img) "\");"
+               "flex: auto;")}
+        [:div {:class "card text-light"
+               :style
+               (str
+                "background-color: rgba(0, 0, 0, 0.5); "
+                "height: 100%;"
+                "border-radius: 0;"
+                "padding-left: 30px;"
+                "padding-right: 30px;")}
+         [:h1 {:class "card-title"} (project :name)]
+         [:p {:class "card-text"} (project :description)]]]))])
 
 (defn view []
   (stats/increment :showcase.pages-viewed.projects)
   (layout/base
    :title "Projects"
-   :content
-   [:div {:class "jumbotron jumbotron-fluid"}
-    [:div {:class "container"}
-     [:div {:class "row"}
-      [:div {:class "col"}
-       [:h1 {:class "display-2"}
-        "Project A"]
-       [:p {:class "lead"}
-        "Exciting one-liner about project a that definitely makes someone want to look into it with a positive impression"]]
-      [:div {:class "col"}
-       [:h1 {:class "display-2"}
-        "Service B"]
-       [:p {:class "lead"}
-        "Eye-catching sentence on service b"]]
-      [:div {:class "w-100"}]
-      [:div {:class "col"}
-       [:h1 {:class "display-2"}
-        "Web App C"]
-       [:p {:class "lead"}
-        "Lots of memorable cliches for Web App C"]]
-      [:div {:class "col"}
-       [:h1 {:class "display-2"}
-        "Library D"]
-       [:p {:class "lead"}
-        "Even more text, probably too much, but oh well; there needs to be at least one example of a sentence with non-trivial length in order to get a feel for styling."]]]]]))
+   :content (content)))
