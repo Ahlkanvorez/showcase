@@ -15,4 +15,4 @@ CMD java -XX:+UseContainerSupport \
          -jar ./showcase.jar
 
 COPY --from=builder /showcase/resources ./resources
-COPY --from=builder /showcase/target/uberjar/clojure-showcase-1.0.10-standalone.jar ./showcase.jar
+COPY --from=builder /showcase/target/uberjar/clojure-showcase-*-standalone.jar ./showcase.jar
