@@ -2,7 +2,7 @@
  :content
  [:div
   [:h1 {:class "display-4"}
-   "Robert Mitchell"]
+   "About Me"]
   [:p {:class "lead"}
    "As a Senior Software Engineer at ION Geophysical, I apply Agile & DevOps principles to coordinate with other teams, modernize our systems and applications, and automate their testing and deployment. I use Ansible, Docker, and Python to enable automated, repeatable deployments both on-premises and in public clouds, such as AWS."]
   [:p "Additionally, I design, implement, and maintain applications and services using Test-Driven Development to facilitate the work of Geophysicists, including highly concurrent Erlang applications that interact with RabbitMQ, and Graph & NoSQL databases; full-stack webapps using NodeJS and ReactJS for custom graph visualizations; and Qt-based C++ applications."]
