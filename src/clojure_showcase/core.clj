@@ -24,4 +24,4 @@ having the given prefix"
 (defn -main [& args]
   (stats/setup "graphite" 8125)
   (stats/increment :showcase.server.started)
-  (start 3000))
+  (start 3000 (System/getenv "HTTP_PREFIX")))
