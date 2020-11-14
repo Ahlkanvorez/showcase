@@ -1,1 +1,1 @@
-web: java $JVM_OPTS -cp target/showcase-standalone.jar
+web: java $JVM_OPTS -jar target/showcase-standalone.jar
