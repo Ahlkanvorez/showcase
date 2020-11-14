@@ -3,6 +3,7 @@
   :url "https://ahlk.io/showcase"
   :license {:name "EPL-2.0 OR GPL-2.0-or-later WITH Classpath-exception-2.0"
             :url "https://www.eclipse.org/legal/epl-2.0/"}
+  :min-lein-version "2.0.0"
   :dependencies [[org.clojure/clojure "1.10.0"]
                  [com.stuartsierra/component "1.0.0"]
 
@@ -19,4 +20,5 @@
   :plugins [[lein-ring "0.12.5"]]
   :ring {:handler clojure-showcase.core/server}
   :target-path "target/%s"
+  :uberjar-name "showcase-standalone.jar"
   :profiles {:uberjar {:aot :all :main clojure-showcase.core}})
