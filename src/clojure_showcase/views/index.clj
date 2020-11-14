@@ -13,7 +13,7 @@
     [:div (projects/content)]
     [:div {:class "bg-light"}
      [:h1 {:class "display-3"}
-      "Hello Coding Projects"]]
+      "Under construction"]]
     [:div
      [:h1 {:class "display-3"}
       "More stuff"]]]))
