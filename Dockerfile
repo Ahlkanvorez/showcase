@@ -9,10 +9,12 @@ FROM openjdk:16-slim-buster
 EXPOSE 3000
 WORKDIR /showcase
 
-CMD java -XX:+UseContainerSupport \
-         -XX:+UnlockExperimentalVMOptions \
-         -XX:+UseZGC \
-         -jar ./showcase.jar
+CMD ["java", \
+     "-XX:+UseContainerSupport", \
+     "-XX:+UnlockExperimentalVMOptions", \
+     "-XX:+UseZGC", \
+     "-jar", \
+     "./showcase.jar"]
 
 COPY --from=builder /showcase/resources ./resources
 COPY --from=builder /showcase/target/uberjar/clojure-showcase-*-standalone.jar ./showcase.jar
