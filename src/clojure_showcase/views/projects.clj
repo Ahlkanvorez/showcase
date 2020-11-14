@@ -1,11 +1,9 @@
 (ns clojure-showcase.views.projects
   (:require [clojure-showcase.views.layout :as layout]
             [clojure-showcase.utils :as utils]
-            [hiccup.core :as h]
-            [clj-statsd :as stats]))
+            [hiccup.core :as h]))
 
-(defn projects []
-  (utils/read-edn-file "projects"))
+(defn projects [] (utils/read-projects-list))
 
 (defn content []
   [:div {:class "d-flex flex-wrap bg-transparent w-auto project-list-container"
@@ -32,7 +30,6 @@
          [:p {:class "card-text"} (project :description)]]]))])
 
 (defn view []
-  (stats/increment :showcase.pages-viewed.projects)
   (layout/base
    :title "Projects"
    :content (content)))

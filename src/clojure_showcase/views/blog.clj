@@ -3,27 +3,17 @@
             [clojure-showcase.views.layout :as layout]
             [clojure-showcase.utils :as utils]
             [hiccup.core :as h]
-            [clojure.edn :as edn]
-            [clj-statsd :as stats]))
+            [clojure.edn :as edn]))
 
 (defn articles []
-  (->> (utils/article-root)
-       io/file
-       file-seq
-       (filter #(.isFile %))
-       (map (fn [path]
-              (let [name (-> path
-                             str
-                             (clojure.string/split #"/")
-                             last
-                             (clojure.string/split #"\.")
-                             first)
-                    {date :date [div & contents] :content}
-                    (utils/read-article name)]
-                {:name name
-                 :date date
-                 :content (vec (conj (take 2 contents)
-                                     div))})))
+  (->> (transduce
+        (comp (map (juxt utils/read-article identity))
+              (map
+               #(assoc
+                 (update (first %) :content (comp vec (partial take 3)))
+                 :name (second %))))
+        conj
+        (utils/read-blog-list))
        (sort-by :date)
        reverse))
 
@@ -35,13 +25,12 @@
       [:div {:onclick
              (str "location.href='"
                   (if (= (:name article) "about")
-                    "/showcase/about"
-                    (str "/showcase/blog/" (:name article)))
+                    "/about"
+                    (str "/blog/" (:name article)))
                   "'")}
        (:content article)])]])
 
 (defn view []
-  (stats/increment :showcase.pages-viewed.blog)
   (layout/base
    :title "Robert Mitchell | Blog"
    :content (content)))
