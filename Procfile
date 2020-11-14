@@ -1,1 +1,1 @@
-web: java $JVM_OPTS -cp target/showcase-standalone.jar clojure.main -m clojure-showcase.core
+web: java $JVM_OPTS -cp target/showcase-standalone.jar
