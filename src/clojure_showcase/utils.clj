@@ -1,23 +1,19 @@
 (ns clojure-showcase.utils
   (:require [clojure.edn :as edn]))
 
-(defn prefix-with [p s]
-  (if (.startsWith s p)
-    s
-    (str p s)))
+(defn prefix-with [prefix s]
+  (if (.startsWith s prefix) s (str prefix s)))
 
-(defn root-path []
-  (str (System/getProperty "user.dir")
-       "/resources/public/showcase/edn/"))
+(defn suffix-with [suffix s]
+  (if (.endsWith s suffix) s (str s suffix)))
+
+(defn wrap-with [prefix suffix s]
+  (-> s (prefix-with prefix) (suffix-with suffix)))
 
 (defn article-root []
-  (str (root-path) "/articles/"))
+  (str (System/getenv "ARTICLES_REPO") "/articles/"))
 
-(defn path [name]
-  (str (root-path) "/" name ".edn"))
+(defn slurp-edn [path] (-> path slurp edn/read-string))
 
-(defn read-edn-file [name]
-  (-> name path slurp edn/read-string))
-
-(defn read-article [name]
-  (read-edn-file (str "articles/" name)))
+(defn read-article [n]
+  (->> n (wrap-with (article-root) ".edn") slurp-edn))
