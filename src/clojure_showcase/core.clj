@@ -6,9 +6,10 @@
 
 (defonce server (atom nil))
 
-(defn start [port prefix]
+(defn start
   "Start the webserver using the given port with all urls
 having the given prefix"
+  [port prefix]
   (reset! server
           (component/start
            (server/make-with port prefix))))
