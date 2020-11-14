@@ -1,18 +1,16 @@
 (ns clojure-showcase.core
   (:require [clojure-showcase.server :as server]
-            [com.stuartsierra.component :as component]
-            [clj-statsd :as stats])
+            [com.stuartsierra.component :as component])
   (:gen-class))
 
 (defonce server (atom nil))
 
 (defn start
-  "Start the webserver using the given port with all urls
-having the given prefix"
-  [port prefix]
+  "Start the webserver using the given port."
+  [port]
   (reset! server
           (component/start
-           (server/make-with port prefix))))
+           (server/make-with port))))
 
 (defn stop []
   (reset! server (component/stop @server)))
@@ -20,9 +18,7 @@ having the given prefix"
 (defn restart []
   (when-not (nil? @server)
     (stop))
-  (start (:port @server) (:prefix @server)))
+  (start (:port @server)))
 
 (defn -main [& args]
-  (stats/setup "graphite" 8125)
-  (stats/increment :showcase.server.started)
-  (start (System/getenv "PORT") (System/getenv "HTTP_PREFIX")))
+  (start (System/getenv "PORT")))

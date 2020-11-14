@@ -16,22 +16,18 @@
             [hiccup.page :as page]
             [com.stuartsierra.component :as component]))
 
-(defn server-api [api-prefix]
+(defn server-api []
   (routes
-   (GET "/" [] (ring-util/redirect (str api-prefix "/")))
-   (GET api-prefix []
-        (ring-util/redirect (str api-prefix "/")))
-   (context api-prefix []
-            (GET "/" [] (index/view))
-            (GET "/projects" [] (projects/view))
-            (GET "/about" [] (about/view))
-            (GET "/blog" [] (blog/view))
-            (GET "/blog/:title" [title]
-                 (article/view title)))
+   (GET "/" [] (index/view))
+   (GET "/projects" [] (projects/view))
+   (GET "/about" [] (about/view))
+   (GET "/blog" [] (blog/view))
+   (GET "/blog/:title" [title]
+        (article/view title))
    (route/resources "/")
    (route/not-found (not-found/view))))
 
-(defrecord Server [port prefix server]
+(defrecord Server [port server]
   component/Lifecycle
   (start [this]
     (if server
@@ -39,9 +35,8 @@
           this)
       (do (log/info "Starting server on port" port)
           (assoc this :server
-                 (jetty/run-jetty
-                  (server-api (utils/prefix-with "/" prefix))
-                  {:port port :join? false})))))
+                 (jetty/run-jetty (server-api)
+                                  {:port port :join? false})))))
   (stop [this]
     (if-not server
       (do (log/warn "Server not running")
@@ -50,6 +45,6 @@
           (.stop server)
           (assoc this :server nil)))))
 
-(defn make-with [port prefix]
-  (map->Server {:port port :prefix prefix}))
+(defn make-with [port]
+  (map->Server {:port (Integer/parseInt port)}))
 

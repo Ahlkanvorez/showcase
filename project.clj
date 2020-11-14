@@ -15,11 +15,7 @@
 
                  ;; logging
                  [org.slf4j/slf4j-simple "1.7.30"]
-                 [org.clojure/tools.logging "1.1.0"]
-
-                 ;; telemetry
-                 [clj-statsd "0.4.0"]
-                 ]
+                 [org.clojure/tools.logging "1.1.0"]]
   :plugins [[lein-ring "0.12.5"]]
   :ring {:handler clojure-showcase.core/server}
   :target-path "target/%s"

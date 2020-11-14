@@ -4,7 +4,7 @@
 (defn nav-link [name]
   [:li {:class "nav-item"}
    [:a {:class "nav-link"
-        :href (str "/showcase/" (.toLowerCase name))}
+        :href (str "/" (.toLowerCase name))}
     name]])
 
 (defn header []
@@ -13,7 +13,7 @@
     {:class "navbar fixed-top navbar-expand-lg navbar-light bg-light"
      :id "navbar"}
     [:a {:class "navbar-brand blog-title"
-         :href "/showcase"}
+         :href "/"}
      "Robert Mitchell"]
     [:button {:class "navbar-toggler"
               :type "button"
@@ -48,7 +48,7 @@
    [:meta {:name "viewport"
            :content "width=device-width, initial-scale=1, shrink-to-fit=no"}]
    [:title title]
-   (h/include-css "/showcase/css/styles.css")
+   (h/include-css "/css/styles.css")
    (h/include-css
     "https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css")
    (h/include-js
