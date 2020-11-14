@@ -1,9 +1,0 @@
-{:date #inst "2020-08-29T02:58:04.098-00:00"
- :content
- [:div
-  [:h1 {:class "display-4"}
-   "Hello World"]
-  [:p {:class "lead"}
-   "This is just a placeholder since I need to have more content to test layouts."]
-  [:hr {:class "my-4"}]
-  [:p "This should only appear on its dedicated article page, not the main blog page."]]}
