@@ -13,8 +13,8 @@
     [:div (projects/content)]
     [:div {:class "d-flex flex-wrap"}
      [:div {:class "container-fluid bg-light"}
-      [:h3 {:class "display-3"}
-       "Under construction"]]
+      [:h4 {:class "display-4"}
+       "Another Section"]]
      [:div {:class "container-fluid"}
-      [:h3 {:class "display-3"}
+      [:h4 {:class "display-4"}
        "More stuff"]]]]))
