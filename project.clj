@@ -21,4 +21,5 @@
   :ring {:handler clojure-showcase.core/server}
   :target-path "target/%s"
   :uberjar-name "showcase-standalone.jar"
-  :profiles {:uberjar {:aot :all :main clojure-showcase.core}})
+  :profiles {:uberjar {:aot :all :main clojure-showcase.core}
+             :dev {:main clojure-showcase.core}})
