@@ -32,4 +32,4 @@
 (defn view []
   (layout/base
    :title "Projects"
-   :content (content)))
+   :content [:div (content)]))

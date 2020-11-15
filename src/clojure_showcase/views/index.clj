@@ -11,9 +11,10 @@
    :content
    [:div
     [:div (projects/content)]
-    [:div {:class "bg-light"}
-     [:h1 {:class "display-3"}
-      "Under construction"]]
-    [:div
-     [:h1 {:class "display-3"}
-      "More stuff"]]]))
+    [:div {:class "d-flex flex-wrap"}
+     [:div {:class "container-fluid bg-light"}
+      [:h3 {:class "display-3"}
+       "Under construction"]]
+     [:div {:class "container-fluid"}
+      [:h3 {:class "display-3"}
+       "More stuff"]]]]))
