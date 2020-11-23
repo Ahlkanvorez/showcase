@@ -14,20 +14,24 @@
    (for [[r row] (map-indexed vector (partition-all 2 (projects)))]
      (for [[c project] (map-indexed vector row)]
        [:div {:class "project-container"
-              :style
-              (str
-               "background-image: url(\"" (project :img) "\");"
-               "flex: auto;")}
+              :style (str "background-image: url(\"" (project :img) "\");"
+                          "flex: auto;")}
         [:div {:class "card text-light"
-               :style
-               (str
-                "background-color: rgba(0, 0, 0, 0.5); "
-                "height: 100%;"
-                "border-radius: 0;"
-                "padding-left: 30px;"
-                "padding-right: 30px;")}
-         [:h1 {:class "card-title"} (project :name)]
-         [:p {:class "card-text"} (project :description)]]]))])
+               :style (str "background-color: rgba(0, 0, 0, 0.5); "
+                           "height: 100%;"
+                           "border-radius: 0;"
+                           "padding-left: 30px;"
+                           "padding-right: 30px;")}
+         [:h1 {:class "card-title"}
+          (if-let [demo-url (get project :demo-url)]
+            [:a {:class "text-decoration-none text-reset"
+                 :href demo-url
+                 :target "_blank"
+                 :rel "noreferrer noopener"}
+             (project :name)]
+            (project :name))]
+         [:p {:class "card-text lead"}
+          (project :description)]]]))])
 
 (defn view []
   (layout/base
