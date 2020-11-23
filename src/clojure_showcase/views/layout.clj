@@ -35,11 +35,15 @@
     [:div {:class "container"}
      [:h5 {:class "display-5"}
       "Contact Me"]
-     [:a {:class "btn btn-secondary btn-large"}
-      "Github"]
-     [:a {:class "btn btn-secondary btn-large"}
+     [:a {:class "btn btn-secondary btn-large"
+          :href "https://bitbucket.org/ahlk/"
+          :target "_blank"
+          :rel "noreferrer noopener"}
       "Bitbucket"]
-     [:a {:class "btn btn-secondary btn-large"}
+     [:a {:class "btn btn-secondary btn-large"
+          :href "https://www.linkedin.com/in/robert-mitchell7/"
+          :target "_blank"
+          :rel "noreferrer noopener"}
       "LinkedIn"]]]])
 
 (defn head [title]
