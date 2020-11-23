@@ -22,7 +22,8 @@
          :style "margin-top: 30px;"}
    [:div {:class "d-flex flex-column container"}
     (for [article (articles)]
-      [:div {:onclick
+      [:div {:style "text-align: justify"
+             :onclick
              (str "location.href='"
                   (if (= (:name article) "about")
                     "/about"
