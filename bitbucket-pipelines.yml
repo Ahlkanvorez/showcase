@@ -30,6 +30,7 @@ pipelines:
         - step:
             name: Archive code to send to Heroku
             script:
+              - apt update -y
               - apt install -y git
               - git archive --format=tar.gz master -o showcase.tar.gz
             artifacts:
