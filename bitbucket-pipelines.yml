@@ -30,10 +30,9 @@ pipelines:
         - step:
             name: Archive code to send to Heroku
             script:
-              - cd clojure-showcase
               - git archive --format=tar.gz master -o showcase.tar.gz
             artifacts:
-              - clojure-showcase/showcase.tar.gz
+              - showcase.tar.gz
         - step:
             name: Security Scan
             script:
@@ -50,6 +49,6 @@ pipelines:
               variables:
                 HEROKU_API_KEY: $HEROKU_API_KEY
                 HEROKU_APP_NAME: "robertm-staging"
-                ZIP_FILE: clojure-showcase/showcase.tar.gz
+                ZIP_FILE: showcase.tar.gz
                 WAIT: "true"
                 DEBUG: "false"
