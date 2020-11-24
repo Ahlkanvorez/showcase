@@ -51,5 +51,5 @@ pipelines:
                 HEROKU_API_KEY: $HEROKU_API_KEY
                 HEROKU_APP_NAME: "robertm-staging"
                 ZIP_FILE: clojure-showcase/showcase.tar.gz
-                WAIT: true
-                DEBUG: false
+                WAIT: "true"
+                DEBUG: "false"
