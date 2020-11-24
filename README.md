@@ -1,10 +1,34 @@
 # Showcase
 
-A Clojure library designed to ... well, that part is up to you.
+A personal showcase website designed to highlight the things I love
+working on by linking to live demos or source code of some of my
+projects, sharing short thoughts in my blog, and outlining the
+technologies I've worked with.
+
+The server is written in Clojure using Ring & Compojure, and the front
+end is static HTML generated via Hiccup, styled using Bootstrap. The
+project descriptions live in an EDN file in a separate repository, as
+do the blog articles, so that I can quickly add, edit, or remove them
+without having to recompile or redeploy any source code.
+
+Deployments are to Heroku.
 
 ## Usage
 
-FIXME
+The project setup assumes you have [Leiningen](https://leiningen.org/)
+installed:
+
+- Run `lein run` in your terminal
+- Wait until you see `[main] INFO org.eclipse.jetty.server.Server - Started`
+- Open [localhost:3000](http://localhost:3000) in your browser.
+
+An alternate port can be used by setting the environment varialbe `PORT`
+to the desired value before starting the server.
+
+## Deployment
+
+The server is deployed to Heroku, which merely involves pushing commits
+to the heroku remote.
 
 ## License
 

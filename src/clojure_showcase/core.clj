@@ -21,4 +21,4 @@
   (start (:port @server)))
 
 (defn -main [& args]
-  (start (System/getenv "PORT")))
+  (start (or (System/getenv "PORT") "3000")))
