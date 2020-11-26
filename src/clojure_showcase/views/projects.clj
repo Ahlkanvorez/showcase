@@ -5,7 +5,7 @@
 
 (defn projects [] (utils/read-projects-list))
 
-(defn content []
+(defn projects-content []
   [:div {:class "d-flex flex-wrap bg-transparent w-auto project-list-container"
          :style (str
                  "margin-top: 30px;"
@@ -33,7 +33,26 @@
          [:p {:class "card-text lead"}
           (project :description)]]]))])
 
+(defn technologies-content []
+  [:div {:class "d-flex flex-wrap"}
+   [:div {:class "container-fluid"}
+    [:h4 {:class "display-4"}
+     "Technologies"]
+    (let [tech (utils/project-technologies)]
+      (for [group (keys tech)]
+        [:div {:class "d-flex flex-wrap rounded-sm border-top mb-2"}
+         [:span {:class "p-2 lead text-white bg-secondary"
+                 :style "width: 130px"}
+          group]
+         (for [item (group tech)]
+           [:span {:class "p-2 lead"} item])]))]])
+
+(defn content []
+  [:div
+   [:div (projects-content)]
+   [:div (technologies-content)]])
+
 (defn view []
   (layout/base
    :title "Projects"
-   :content [:div (content)]))
+   :content (content)))
