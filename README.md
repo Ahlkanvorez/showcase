@@ -16,8 +16,13 @@ Deployments are to Heroku.
 ## Usage
 
 The project setup assumes you have [Leiningen](https://leiningen.org/)
-installed:
+installed.
 
+- Set environment varialbes ARTICLES_REPO & PROJECTS_REPO; defaults:
+```
+ARTICLES_REPO: https://bitbucket.org/ahlk/blog/raw/master/
+PROJECTS_REPO: https://bitbucket.org/ahlk/project-showcase/raw/master/
+```
 - Run `lein run` in your terminal
 - Wait until you see `[main] INFO org.eclipse.jetty.server.Server - Started`
 - Open [localhost:3000](http://localhost:3000) in your browser.

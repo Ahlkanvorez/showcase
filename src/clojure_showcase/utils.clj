@@ -10,19 +10,32 @@
 (defn wrap-with [prefix suffix s]
   (->> s (prefix-with prefix) (suffix-with suffix)))
 
+(defn articles-uri []
+  (or (System/getenv "ARTICLES_REPO")
+      "https://bitbucket.org/ahlk/blog/raw/master/"))
+
+(defn projects-uri []
+  (or (System/getenv "PROJECTS_REPO")
+      "https://bitbucket.org/ahlk/project-showcase/raw/master/"))
+
 (defn article-root []
-  (str (System/getenv "ARTICLES_REPO") "articles/"))
+  (str (articles-uri) "articles/"))
 
 (defn slurp-edn [path] (-> path slurp edn/read-string))
 
 (defn read-article [name]
   (->> name (wrap-with (article-root) ".edn") slurp-edn))
 
-(defn projects-root []
-  (str (System/getenv "PROJECTS_REPO")))
-
 (defn read-projects-list []
-  (-> (projects-root) (str "projects.edn") slurp-edn))
+  (-> (projects-uri) (str "projects.edn") slurp-edn))
 
 (defn read-blog-list []
-  (-> (System/getenv "ARTICLES_REPO") (str "index.edn") slurp-edn :articles))
+  (-> (articles-uri) (str "index.edn") slurp-edn :articles))
+
+(defn project-technologies []
+  (->> (read-projects-list)
+       (map :technologies)
+       (apply merge-with (comp sort set concat))))
+
+(defn work-history []
+  (-> (projects-uri) (str "work.edn") slurp-edn))
