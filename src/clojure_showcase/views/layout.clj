@@ -32,19 +32,16 @@
 (defn footer []
   [:footer {:class "footer bg-light"}
    [:div {:class "jumbotron bg-transparent"}
-    [:div {:class "container-fluid"}
-     [:div {:class "d-flex flex-wrap rounded-sm border-bottom mb-2"}
-      [:span {:class "p-2 lead text-white bg-secondary"}
-       "Contact Me"]
+    [:div {:class "container-fluid text-center"}
+     [:div {:class "d-flex flex-wrap flex-column rounded-sm border-left mb-2"}
+      [:span {:class "p-2 lead text-white bg-secondary"} "Contact Me"]
       [:div {:class "p-1"}
-       [:a {:class "btn btn-primary btn-large"
-            :href "https://bitbucket.org/ahlk/"
+       [:a {:href "https://bitbucket.org/ahlk/"
             :target "_blank"
             :rel "noreferrer noopener"}
         "Bitbucket"]]
       [:div {:class "p-1"}
-       [:a {:class "btn btn-primary btn-large"
-            :href "https://www.linkedin.com/in/robert-mitchell7/"
+       [:a {:href "https://www.linkedin.com/in/robert-mitchell7/"
             :target "_blank"
             :rel "noreferrer noopener"}
         "LinkedIn"]]]]]])
