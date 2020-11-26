@@ -32,7 +32,7 @@
 (defn footer []
   [:footer {:class "footer bg-light"}
    [:div {:class "jumbotron bg-transparent"}
-    [:div {:class "container"}
+    [:div {:class "container-fluid"}
      [:h5 {:class "display-5"}
       "Contact Me"]
      [:a {:class "btn btn-secondary btn-large"
