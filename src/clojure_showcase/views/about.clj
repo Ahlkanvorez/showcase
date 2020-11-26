@@ -18,7 +18,7 @@
 
 (defn work-history []
   [:div {:class "container-fluid bg-light"}
-   [:h4 {:class "display-4"}
+   [:h4 {:class "display-4 mt-3"}
     "Work History"]
    (for [job (utils/work-history)]
      (work-history-for job))])

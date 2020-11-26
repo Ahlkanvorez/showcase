@@ -36,7 +36,7 @@
 (defn technologies-content []
   [:div {:class "d-flex flex-wrap"}
    [:div {:class "container-fluid"}
-    [:h4 {:class "display-4"}
+    [:h4 {:class "display-4 mt-3"}
      "Technologies"]
     (let [tech (utils/project-technologies)]
       (for [group (keys tech)]
