@@ -10,7 +10,7 @@
 
 (defn work-history-for [job]
   [:div {:class "jumbotron"}
-   [:h4 {:class "h4"} (:title job)]
+   [:h4 {:class "h4"} (:company job)]
    [:div {:class "d-flex flex-column"}
     (for [role (:roles job)]
       (role-content role))]
