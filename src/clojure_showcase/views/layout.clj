@@ -33,7 +33,7 @@
   [:footer {:class "footer bg-light"}
    [:div {:class "jumbotron bg-transparent"}
     [:div {:class "container-fluid text-center"}
-     [:div {:class "d-flex flex-wrap flex-column rounded-sm border-left mb-2"}
+     [:div {:class "d-flex flex-wrap flex-column rounded-sm mb-2"}
       [:span {:class "p-2 lead text-white bg-secondary"} "Contact Me"]
       [:div {:class "p-1"}
        [:a {:href "https://bitbucket.org/ahlk/"
