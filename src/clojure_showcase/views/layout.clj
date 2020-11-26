@@ -36,13 +36,13 @@
      [:div {:class "d-flex flex-wrap rounded-sm border-bottom mb-2"}
       [:span {:class "p-2 lead text-white bg-secondary"}
        "Contact Me"]
-      [:div {:class "p-2"}
+      [:div {:class "p-1"}
        [:a {:class "btn btn-primary btn-large"
             :href "https://bitbucket.org/ahlk/"
             :target "_blank"
             :rel "noreferrer noopener"}
         "Bitbucket"]]
-      [:div {:class "p-2"}
+      [:div {:class "p-1"}
        [:a {:class "btn btn-primary btn-large"
             :href "https://www.linkedin.com/in/robert-mitchell7/"
             :target "_blank"
