@@ -16,17 +16,19 @@
       (role-content role))]
    (:description job)])
 
-(defn work-history []
-  [:div {:class "container-fluid bg-light"}
+(defn work-history
+  ([] (work-history "container-fluid"))
+  ([container-type]
+   [:div {:class (str container-type " bg-light")}
    [:h4 {:class "display-4 mt-3"}
     "Work History"]
    (for [job (utils/work-history)]
-     (work-history-for job))])
+     (work-history-for job))]))
 
 (defn content []
   [:div
    (article/content "about")
-   (work-history)])
+   (work-history "container")])
 
 (defn view []
   (layout/base
