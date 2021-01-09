@@ -36,10 +36,10 @@
      [:div {:class "d-flex flex-wrap flex-column rounded-sm mb-2"}
       [:span {:class "p-2 lead text-white bg-secondary"} "Contact Me"]
       [:div {:class "p-1"}
-       [:a {:href "https://bitbucket.org/ahlk/"
+       [:a {:href "https://github.com/Ahlkanvorez"
             :target "_blank"
             :rel "noreferrer noopener"}
-        "Bitbucket"]]
+        "GitHub"]]
       [:div {:class "p-1"}
        [:a {:href "https://www.linkedin.com/in/robert-mitchell7/"
             :target "_blank"
