@@ -12,11 +12,11 @@
 
 (defn articles-uri []
   (or (System/getenv "ARTICLES_REPO")
-      "https://bitbucket.org/ahlk/blog/raw/master/"))
+      "https://raw.githubusercontent.com/Ahlkanvorez/blog-articles/master/"))
 
 (defn projects-uri []
   (or (System/getenv "PROJECTS_REPO")
-      "https://bitbucket.org/ahlk/project-showcase/raw/master/"))
+      "https://raw.githubusercontent.com/Ahlkanvorez/showcase-projects/master/"))
 
 (defn article-root []
   (str (articles-uri) "articles/"))
