@@ -27,7 +27,7 @@ PROJECTS_REPO=https://raw.githubusercontent.com/Ahlkanvorez/showcase-projects/ma
 - Wait until you see `[main] INFO org.eclipse.jetty.server.Server - Started`
 - Open [localhost:3000](http://localhost:3000) in your browser.
 
-An alternate port can be used by setting the environment varialbe `PORT`
+An alternate port can be used by setting the environment variable `PORT`
 to the desired value before starting the server.
 
 ## Deployment
