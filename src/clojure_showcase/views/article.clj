@@ -7,7 +7,7 @@
             [hiccup.core :as h]))
 
 (defn date [d]
-  (-> (DateTimeFormatter/ofPattern "yyyy/MM/dd hh:mm a")
+  (-> (DateTimeFormatter/ofPattern "MMM dd, yyyy")
       (.format (.. d toInstant
                    (atZone (ZoneId/systemDefault))
                    toLocalDateTime))))
@@ -19,7 +19,7 @@
       [:div {:class "container"}
        (:content article)
        [:header {:style "float: right"}
-        "Last Updated " [:time (date (:date article))]]]]]))
+        "Last Updated " [:time (-> article :date date)]]]]]))
 
 (defn view [name]
   (layout/base
