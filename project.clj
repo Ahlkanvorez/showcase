@@ -1,10 +1,10 @@
-(defproject clojure-showcase "1.1.1"
+(defproject clojure-showcase "1.1.2"
   :description "A site to showcase projects and share articles"
-  :url "https://ahlk.io/showcase"
+  :url "https://robertm.io/"
   :license {:name "BSD 3-Clause License"
             :url "https://choosealicense.com/licenses/bsd-3-clause/"}
   :min-lein-version "2.0.0"
-  :dependencies [[org.clojure/clojure "1.10.0"]
+  :dependencies [[org.clojure/clojure "1.10.2"]
                  [com.stuartsierra/component "1.0.0"]
 
                  ;; webserver
