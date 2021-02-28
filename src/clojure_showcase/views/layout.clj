@@ -36,7 +36,7 @@
      [:div {:class "d-flex flex-wrap flex-column rounded-sm mb-2"}
       [:span {:class "p-2 lead text-white bg-secondary"} "Contact Me"]
       [:div {:class "p-1"}
-       [:a {:href "https://github.com/Ahlkanvorez"
+       [:a {:href "https://github.com/robert-mitchell"
             :target "_blank"
             :rel "noreferrer noopener"}
         "GitHub"]]

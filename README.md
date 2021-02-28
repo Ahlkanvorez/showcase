@@ -20,8 +20,8 @@ installed.
 
 - Set environment variables ARTICLES_REPO & PROJECTS_REPO; defaults:
 ```
-ARTICLES_REPO=https://raw.githubusercontent.com/Ahlkanvorez/blog-articles/master/
-PROJECTS_REPO=https://raw.githubusercontent.com/Ahlkanvorez/showcase-projects/master/
+ARTICLES_REPO=https://raw.githubusercontent.com/robert-mitchell/blog-articles/master/
+PROJECTS_REPO=https://raw.githubusercontent.com/robert-mitchell/showcase-projects/master/
 ```
 - Run `lein run` in your terminal
 - Wait until you see `[main] INFO org.eclipse.jetty.server.Server - Started`
